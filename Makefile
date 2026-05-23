@@ -32,4 +32,4 @@ e2e-install: ## Install front npm deps and the playwright browser (run once)
 	cd front && npm install && npx playwright install --with-deps chromium
 
 e2e: ## Open the Playwright UI runner against the running containers (needs all three containers up + e2e-install)
-	set -a && . ./.env.development.e2e && cd front && npm run e2e:ui
+	set -a && . ./.env.development.e2e && cd front && npm run e2e
