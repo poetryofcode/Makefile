@@ -28,7 +28,7 @@ FROM nginx:alpine AS runtime
 # COPY --from=builder /app/next/standalone ./ it is for next
 # static files creates in dist folder
 COPY --from=builder /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 # main thing if something working inside container then container is working, once main process (PID1) stopped then container is stop and our app is stopped. So we use daemon 0ff - to make in forground (it means always keep running). By default nginx server runs in background and it is a problem because Docker thinks nginx stopped and therefore Docker stops that container running.
